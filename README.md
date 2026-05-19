@@ -18,6 +18,7 @@
 - **📂 Manajemen Dokumen Arsip**: Penyimpanan berkas dan dokumen penting instansi (PDF, Word, Excel, dll).
 - **🏷️ Kategori Terstruktur**: Pengelompokan surat dan dokumen berdasarkan kategori yang dapat disesuaikan.
 - **👥 Manajemen Pengguna & Hak Akses**: Pembagian peran pengguna (Admin, Operator, dll).
+- **📧 Notifikasi Email Otomatis**: Pengiriman pemberitahuan instan via email setiap kali ada aktivitas krusial (seperti perubahan kata sandi akun).
 - **⚙️ Pengaturan Sistem**: Konfigurasi profil instansi dan parameter aplikasi.
 - **🔒 Demo Mode Protection**: Keamanan tingkat lanjut untuk rilis publik/GitHub.
 
@@ -54,7 +55,13 @@ Fitur-fitur tersebut hanya bisa diakses pada **Versi Penuh (Pro License)**.
    ```bash
    cp .env.example .env
    ```
-   Sesuaikan konfigurasi database (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`) di dalam file `.env`.
+   Sesuaikan konfigurasi database di dalam file `.env`:
+   ```env
+   DB_DATABASE=nama_database_anda
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+   *Opsional: Untuk mengaktifkan fitur Notifikasi Email (seperti perubahan kata sandi), pastikan Anda juga mengatur konfigurasi SMTP (MAIL_MAILER, MAIL_HOST, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD) di dalam file `.env`.*
 
 4. **Generate Application Key**
    ```bash
