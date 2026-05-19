@@ -1,0 +1,345 @@
+:root {
+    --primary: #059669; /* Green to match PTPN/Perkebunan */
+    --primary-dark: #047857;
+    --bg-accent: #f0fdf4;
+    --text-dark: #0f172a;
+    --text-gray: #64748b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b1329; /* Fallback warna gelap yang elegan */
+    background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.82) 0%, rgba(4, 120, 87, 0.75) 100%), url('../images/login_bg_ptpn.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-wrapper {
+    width: 100%;
+    max-width: 400px; /* Reduced from 500px for a sleeker, more compact look */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px; /* Reduced from 40px */
+    box-shadow: 0 20px 40px -15px rgba(5, 150, 105, 0.15), 0 0 10px 0 rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Unified Logo Lockup Area */
+.logo-header {
+    padding: 35px 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Kontainer badge lockup agar ketiga logo serasa digabungkan menjadi satu kesatuan resmi */
+.logo-lockup-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px; /* Membulat lembut layaknya satu badge terintegrasi */
+    padding: 10px 18px;
+    gap: 14px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.logo-lockup-badge:hover {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01), 0 6px 16px rgba(5, 150, 105, 0.08);
+}
+
+/* Garis pemisah vertikal yang elegan antar logo */
+.logo-separator {
+    width: 1px;
+    height: 26px;
+    background: #cbd5e1;
+    border-radius: 1px;
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kalibrasi presisi agar ketiga logo memiliki bobot visual dan ukuran yang benar-benar sama */
+.logo-danantara {
+    height: 28px; /* Teks horizontal Danantara seimbang sempurna pada tinggi ini */
+}
+
+.logo-ptpn {
+    height: 38px; /* Kalibrasi tinggi agar ombak dan teks PTPN Holding identik */
+}
+
+.logo-ptpn4 {
+    height: 44px; /* Kalibrasi tinggi untuk mengimbangi transparent padding internal PTPN IV */
+}
+
+.logo-img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.04));
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.08);
+}
+
+/* Content Area */
+.login-content {
+    padding: 10px 35px 40px; /* Tighter, more balanced padding */
+}
+
+.header-text {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 24px; /* Scaled down for elegance */
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    padding-left: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.input-control {
+    width: 100%;
+    padding: 12px 16px; /* Sleeker input height */
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px; /* Subtle rounded corners */
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+}
+
+.input-control::placeholder {
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.input-control:focus {
+    background: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.12);
+    outline: none;
+}
+
+/* Password Input Wrapper & Toggle */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.password-wrapper .input-control {
+    padding-right: 42px; /* Memberikan ruang agar teks tidak tertimpa ikon mata */
+}
+
+.password-toggle {
+    position: absolute;
+    right: 14px;
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.password-toggle:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.password-toggle:focus {
+    outline: none;
+}
+
+.password-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 14px; /* Proportionate button padding */
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px -6px rgba(5, 150, 105, 0.4);
+    transition: all 0.2s ease;
+    margin-top: 5px;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px -6px rgba(5, 150, 105, 0.5);
+    filter: brightness(1.05);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.extra-links {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-gray);
+    font-weight: 600;
+}
+
+.extra-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.error-alert {
+    background: #fef2f2;
+    border-left: 4px solid #ef4444;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    color: #991b1b;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.success-alert {
+    background: #f0fdf4;
+    border-left: 4px solid #22c55e;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    color: #15803d;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    .login-wrapper {
+        border-radius: 20px;
+    }
+
+    .logo-header {
+        padding: 25px 15px 10px;
+    }
+
+    /* Penyesuaian lockup badge agar pas di layar HP kecil (seperti 320px - 375px) */
+    .logo-lockup-badge {
+        padding: 8px 12px;
+        gap: 10px;
+        border-radius: 16px;
+        width: 100%; /* Memaksimalkan area yang tersedia */
+        justify-content: center;
+    }
+
+    .logo-separator {
+        height: 22px;
+    }
+
+    /* Penyesuaian skala logo pada mobile agar tidak meluap (overflow) */
+    .logo-danantara { height: 22px; }
+    .logo-ptpn { height: 30px; }
+    .logo-ptpn4 { height: 35px; }
+
+    .login-content {
+        padding: 10px 24px 30px; /* Padding samping lebih pas untuk layar HP */
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 4px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .input-control {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .btn-login {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .extra-links {
+        margin-top: 20px;
+        font-size: 12px;
+    }
+}
